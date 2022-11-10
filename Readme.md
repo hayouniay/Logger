@@ -1,4 +1,5 @@
 # C Logger API
+Adding C Logger project using eclipse C C++
 
 ## Table of Contents
 - [What is this?](#what-is-this)
@@ -83,4 +84,3 @@ logger_initConsoleLogger(NULL);
 logger_initFileLogger("logs/log.txt", 0, 0);
 LOG_INFO("multi logging");
 ```
-
