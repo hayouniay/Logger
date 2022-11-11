@@ -15,7 +15,7 @@ int main(void) {
 	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
 	// Initialize the logger (level and output file).
 
-	if (logger_init(D_TRACE, LOG_FILE_PATH) != 0)
+	if (logger_init(LOG_TRACE, LOG_FILE_PATH) != 0)
 		printf("failed to open the logger\n");
 
 	// Display log messages.

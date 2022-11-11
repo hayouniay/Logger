@@ -16,8 +16,8 @@ int	logger_init(int level, char *log_file){
 
 	if ((ret = logger_init_open_file(log_file)) < 0)
 		return (ret);
-	g_log_lvl = D_OFF;
-	if (level >= D_FATAL && level <= D_TRACE)
+	g_log_lvl = LOG_OFF;
+	if (level >= LOG_FATAL && level <= LOG_TRACE)
 	{
 		g_log_lvl = level;
 		dprintf(g_log_fd, "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> NEW INSTANCE OF THE APPLICATION\n");
@@ -38,26 +38,26 @@ void	logger_msg(int fd, char *file, int line, const char *fmt, ...){
 	char 	*f = NULL;
 	char 	*log_level = NULL;
 
-	if (g_log_lvl < D_DEBUG)
+	if (g_log_lvl < LOG_DEBUG)
 		return ;
 
 	switch (g_log_lvl) {
-		case D_FATAL:
+		case LOG_FATAL:
 			log_level="FATAL";
 			break;
-		case D_ERROR:
+		case LOG_ERROR:
 			log_level="ERROR";
 			break;
-		case D_WARN:
+		case LOG_WARN:
 			log_level="WARNING";
 			break;
-		case D_INFO:
+		case LOG_INFO:
 			log_level="INFO";
 			break;
-		case D_DEBUG:
+		case LOG_DEBUG:
 			log_level="DEBUG";
 			break;
-		case D_TRACE:
+		case LOG_TRACE:
 			log_level="TRACE";
 			break;
 		default:
@@ -75,7 +75,7 @@ void	logger_msg(int fd, char *file, int line, const char *fmt, ...){
 		f = strdup(file);
 
 	time = logger_get_time();
-	asprintf(&out_info, "[%s] [%s] [%s: l-%3d]- ", \
+	asprintf(&out_info, "[%s] [%s] [%s: %3d]- ", \
 			time, log_level, f, line);
 	free(f);
 
