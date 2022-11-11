@@ -4,13 +4,13 @@
 #include <timer.h>
 
 
-# define D_OFF			0
-# define D_FATAL		1
-# define D_ERROR		2
-# define D_WARN			3
-# define D_INFO			4
-# define D_DEBUG		5
-# define D_TRACE		6
+# define LOG_OFF			0
+# define LOG_FATAL		1
+# define LOG_ERROR		2
+# define LOG_WARN			3
+# define LOG_INFO			4
+# define LOG_DEBUG		5
+# define LOG_TRACE		6
 
 #define LOG_FILE_PATH "logs/output_logs.log"
 /*

@@ -2,3 +2,4 @@
 .cproject
 .git
 .settings
+/logs/outpout_logs.log
